@@ -76,7 +76,7 @@ user-invocable: true
 
 ```md
 ---
-applyTo: "docs/**"
+applyTo: "**"
 description: "Use when: 在 docs 中撰写或修改剧情文本时，统一维护世界观设定、角色设定、每章核心情节与关键细节到单一剧情规范文件。关键词：剧情总纲、章节核心、伏笔、设定统一。"
 ---
 
