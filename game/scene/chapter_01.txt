@@ -1,0 +1,122 @@
+; ===== chapter_01: 收到通知书的人 =====
+setVar:ch01_notice_checked=false;
+setVar:ch01_hidden_item=false;
+setVar:ch01_helped_stranger=false;
+setVar:ch01_exam_late=false;
+setVar:ch01_observation=0;
+setVar:ch01_courage=0;
+setVar:ch01_aff_npc=0;
+
+bgm:s_Title.mp3 -volume=60;
+changeBg:bg.webp -next;
+WebGAL:那天下午，挂号信送到了我的手里。
+WebGAL:信封上印着花霞学园的校名。
+WebGAL:我本来以为，这只是普通的入学通知。
+WebGAL:直到我读到了那张说明卡。
+
+WebGAL:请于指定日期前往本校参加入学考。
+WebGAL:未通过者，将失去入学资格。
+setVar:ch01_notice_checked=true;
+WebGAL:……还要考试？
+
+WebGAL:书桌上有证件、备用笔，还有收拾到一半的包。
+WebGAL:我盯着角落里那枚旧徽章，犹豫了一会儿。
+choose:立刻出门:ch01_b01_leave|回头取徽章:ch01_b02_return;
+
+label:ch01_b01_leave;
+setVar:ch01_exam_late=false;
+WebGAL:我把门带上，选择不再回头。
+jumpLabel:ch01_merge_01;
+
+label:ch01_b02_return;
+setVar:ch01_exam_late=true;
+setVar:ch01_hidden_item=true;
+WebGAL:我还是回去把那枚徽章收进了口袋。
+WebGAL:结果，出门时已经比刚才晚了一点。
+jumpLabel:ch01_merge_01;
+
+label:ch01_merge_01;
+WebGAL:去花霞学园的路上，不止我一个人拿着通知书。
+WebGAL:路口有个女生正低头翻着信封，看起来快要急哭了。
+choose:停下来帮她:ch01_b03_help|直接赶路:ch01_b04_skip;
+
+label:ch01_b03_help;
+setVar:ch01_helped_stranger=true;
+setVar:ch01_aff_npc=ch01_aff_npc+1;
+WebGAL:我帮她捡起了掉落的信封，也顺手确认了方向。
+WebGAL:她连声道谢，声音小得像怕惊动什么。
+jumpLabel:ch01_merge_02;
+
+label:ch01_b04_skip;
+setVar:ch01_helped_stranger=false;
+WebGAL:我看了一眼时间，还是决定先赶去学校。
+WebGAL:在这种时候，迟到比冷漠更可怕。
+jumpLabel:ch01_merge_02;
+
+label:ch01_merge_02;
+changeBg:bg.webp -next;
+WebGAL:我把那枚徽章塞进衣袋里，指尖还能摸到一点旧金属的凉意。 -when=ch01_hidden_item==true;
+WebGAL:我还是把所有东西都整理好了，尽量不让自己看起来像个迟到的人。 -when=ch01_exam_late==false;
+WebGAL:即使只是晚了一点，我也能感觉到报到台那边投来的目光更重了。 -when=ch01_exam_late==true;
+WebGAL:花霞学园的校门比想象中更高。
+WebGAL:报到台前排着长队，广播一直在提醒我们保持安静。
+WebGAL:这里不是普通的报到，而是筛选的开场。
+
+WebGAL:负责登记的老师看了我一眼，把编号牌递了过来。
+WebGAL:“记住，拿到通知书不代表已经通过。”
+WebGAL:她的语气平静，却让我后背发紧。
+
+WebGAL:候考区在另一栋大厅里。灯光明亮，座位却排得像刻意分开的战线。
+WebGAL:每个人都在看彼此，像在判断谁会先露出破绽。
+choose:主动搭话:ch01_b05_talk|安静观察:ch01_b06_watch;
+
+label:ch01_b05_talk;
+setVar:ch01_courage=ch01_courage+1;
+WebGAL:我先和旁边的人搭了话，想从他们嘴里套出一点考试情报。
+WebGAL:至少现在，我不能只靠猜。
+jumpLabel:ch01_merge_03;
+
+label:ch01_b06_watch;
+setVar:ch01_observation=ch01_observation+1;
+WebGAL:我没有急着说话，而是先看了一圈周围的人。
+WebGAL:有人紧张地背题，有人安静得过分，像是在等什么信号。
+jumpLabel:ch01_merge_03;
+
+label:ch01_merge_03;
+WebGAL:就在这时，那个路口的女生也进了候考区。
+WebGAL:如果刚才帮过她，她会轻声向我道谢；如果没有，她也只是匆匆移开目光。
+WebGAL:她看起来明显比刚才镇定了一点，像是终于不用一个人硬撑了。 -when=ch01_helped_stranger==true;
+WebGAL:我没有回头，只把那点短暂的犹豫留在了身后。 -when=ch01_helped_stranger==false;
+
+WebGAL:广播开始播放考前说明。
+WebGAL:本次入学考分为三部分：基础测验、情境判断、临场应对。
+WebGAL:我听见这句话的时候，心里忽然有种不太好的预感。
+WebGAL:我忍不住想再多听一会儿，看看别人会不会也露出同样的表情。 -when=ch01_courage>=1;
+WebGAL:我没有开口，只是在心里把那些说明一条条记了下来。 -when=ch01_observation>=1;
+
+WebGAL:“若发现题目内容与讲解不一致，请保持原地，不得擅自行动。”
+WebGAL:这不像是考试说明，更像是提前写好的应急预案。
+
+WebGAL:屏幕右下角的时间轻轻闪了一下。
+WebGAL:讲台上的老师没有停顿，仿佛什么都没发生。
+WebGAL:我却下意识盯住了那一闪而过的异常。 -when=ch01_observation>=1;
+WebGAL:那一瞬间，我感觉周围的人都比刚才更安静了。 -when=ch01_courage>=1;
+
+WebGAL:我却看见了。
+WebGAL:也许，这所学校真正想筛选的，不是答题速度。
+WebGAL:而是人在压力和异常面前，会不会注意到规则本身的裂缝。
+WebGAL:而我刚好注意到了。 -when=ch01_observation>=1;
+
+changeBg:bg.webp -next;
+WebGAL:“编号24，请前往特别考场。”
+WebGAL:广播忽然插进来的一句话，让整个大厅都静了下来。
+WebGAL:那枚徽章在口袋里轻轻一硌，像是在提醒我别把自己已经准备好了这件事想得太早。 -when=ch01_hidden_item==true;
+
+changeFigure:stand.webp -left -next;
+setAnimation:enter-from-left -target=fig-left -next;
+WebGAL:老师第一次露出了真正称得上意外的表情。
+WebGAL:周围的考生也都看向了我。
+WebGAL:花霞学园的入学考，似乎从现在起才真正开始。
+
+changeFigure:none -next;
+end;
