@@ -1,0 +1,33 @@
+{
+  "name": "花糕学院物语",
+  "short_name": "花糕学院物语",
+  "start_url": ".",
+  "display": "fullscreen",
+  "description": "「九川」，一个有少许奇怪之处，却又充满独特魅力的超大型联合都市。「你」作为花糕学院的一名普通的高中新生，意外地被卷入了这个城市的神秘事件中。在这里，你将结识各种各样的人物，经历一系列令人难以置信的冒险，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的人——同时，逐步发掘「九川」的真相。",
+  "dir": "auto",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./icons/icon-192-maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

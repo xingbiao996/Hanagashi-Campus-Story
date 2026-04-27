@@ -1,0 +1,9 @@
+Game_name:花糕学院物语;
+Game_key:808cd440ee767f;
+Title_img:WebGAL_New_Enter_Image.webp;
+Title_bgm:s_Title.mp3;
+Textbox_theme:imss;
+Package_name:cn.flamedot.game.hcs;
+Enable_Appreciation:true;
+Default_Language:zh_CN;
+Description:「九川」，一个有少许奇怪之处，却又充满独特魅力的超大型联合都市。「你」作为花糕学院的一名普通的高中新生，意外地被卷入了这个城市的神秘事件中。在这里，你将结识各种各样的人物，经历一系列令人难以置信的冒险，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的人——同时，逐步发掘「九川」的真相。;
